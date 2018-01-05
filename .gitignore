@@ -20,5 +20,5 @@ yarn-error.log*
 
 # IDEs:
 
-.idea
-.vscode
+/.idea
+/.vscode
