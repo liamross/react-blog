@@ -5,10 +5,6 @@ import { getPageSaga } from './redux/posts/sagas';
 
 export default function* sagas() {
   yield all([
-    fork(
-      takeLatest,
-      GET_PAGE,
-      getPageSaga,
-    ),
+    fork(takeLatest, GET_PAGE, getPageSaga),
   ]);
 }
