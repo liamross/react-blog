@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+@import './colors';
+
+html,
+body,
+#root,
+.App {
+  height: 100%;
+  overflow: hidden;
+}
+
+html {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: $color-neutralPrimary;
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}

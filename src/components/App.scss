@@ -1,0 +1,18 @@
+.App {
+  height: 100%;
+  position: relative;
+
+  .TopBar {
+    height: 48px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    margin-top: 48px;
+    height: calc(100% - 48px);
+  }
+}

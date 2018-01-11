@@ -15,7 +15,7 @@ export function getPosts(pageName, pageToken = '', pageNumber) {
     'https://www.googleapis.com/blogger/v3/blogs/'
     + BLOG_ID + '/posts'
     + '?key=' + API_KEY
-    + '&fields=items(title,content,replies,labels),nextPageToken'
+    + '&fields=items(title,content,replies,labels,id),nextPageToken'
     + '&labels=' + pageName
     + '&maxResults=10'
     + (pageToken ? '&pageToken=' + pageToken : ''),

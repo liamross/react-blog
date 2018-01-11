@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import './BlogPost.scss';
+import './BlogPost.scss';
 
 const propTypes = {
   title: PropTypes.string.isRequired,
@@ -10,14 +10,14 @@ const propTypes = {
 
 const defaultProps = {};
 
-function BlogPost({title, content}) {
+function BlogPost({ title, content }) {
   return (
     <div className="BlogPost">
       <div>
-        <div>
+        <h1>
           {title}
-        </div>
-        <div dangerouslySetInnerHTML={{__html: content}}/>
+        </h1>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
       </div>
     </div>
   );
@@ -25,4 +25,4 @@ function BlogPost({title, content}) {
 
 BlogPost.propTypes = propTypes;
 BlogPost.defaultProps = defaultProps;
-export default BlogPost;
+export { BlogPost };

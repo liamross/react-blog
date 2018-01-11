@@ -1,0 +1,40 @@
+@import '../../theme/colors';
+
+.BlogPost {
+  padding: 24px 16px 36px;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.18);
+  //background-color: $color-neutralLighterAlt;
+  background-color: $color-themePost;
+  margin: 48px 0;
+
+  &:first-child {
+    margin-top: 16px;
+  }
+
+  h1 {
+    margin-top: 0;
+  }
+
+  blockquote {
+    display: block;
+    background: #fff;
+    padding: 15px 20px 15px 45px;
+    margin: 24px 0;
+    position: relative;
+    color: $color-neutralSecondary;
+    box-shadow: 2px 2px 16px rgba(0,0,0,0.16);
+    border-left: 8px solid $color-neutralTertiary;
+  }
+
+  a {
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .separator {
+    // Image wrapper for centered images. Need to overwrite the m
+  }
+}

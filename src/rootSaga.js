@@ -1,7 +1,6 @@
 import { all, fork, takeLatest, takeEvery } from 'redux-saga/effects';
 
-import { GET_PAGE } from './redux/posts/actions';
-import { getPageSaga } from './redux/posts/sagas';
+import { GET_PAGE, getPageSaga } from './redux/posts';
 
 export default function* sagas() {
   yield all([
