@@ -1,10 +1,10 @@
 import React from 'react';
 import { ConnectedRouter } from 'react-router-redux';
 import { Route, Switch } from 'react-router-dom';
-import { BlogBody } from './BlogBody/BlogBody';
 import { history } from '../store';
 import { isPageNameValid } from '../utilities/postUtils';
-import { TopBar } from './TopBar/TopBar';
+import TopBar from './TopBar/TopBar';
+import BlogBody from './BlogBody/BlogBody';
 
 import './App.scss';
 
@@ -39,4 +39,4 @@ function App() {
   );
 }
 
-export default App;
+export { App };

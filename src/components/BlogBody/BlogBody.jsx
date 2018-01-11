@@ -62,5 +62,4 @@ const mapDispatchToProps = (dispatch, props) => (
 
 BlogBody.propTypes = propTypes;
 BlogBody.defaultProps = defaultProps;
-const blogBody = connect(mapStateToProps, mapDispatchToProps)(BlogBody);
-export { blogBody as BlogBody };
+export default connect(mapStateToProps, mapDispatchToProps)(BlogBody);
