@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import './TopBar.scss';
 
@@ -18,11 +18,11 @@ class TopBar extends Component {
   }
 }
 
-const mapStateToProps = (state) => (
+const mapStateToProps = (/*state*/) => (
   {}
 );
 
-const mapDispatchToProps = (dispatch) => (
+const mapDispatchToProps = (/*dispatch*/) => (
   {}
 );
 

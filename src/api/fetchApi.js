@@ -6,21 +6,19 @@
  * @returns {Promise.<*>}
  */
 export async function getJson(url, data, headers) {
-  return await fetch(url, {
-      method: 'GET',
-      data: data ? data : undefined,
-      cache: 'no-cache',
-      headers: new Headers(headers ? headers : undefined),
-    },
-  )
-    .then(response => {
+  return fetch(url, {
+    method: 'GET',
+    data: data || undefined,
+    cache: 'no-cache',
+    headers: new Headers(headers || undefined),
+  })
+    .then((response) => {
       if (response.ok) {
         return response.json();
-      } else {
-        throw response;
       }
+      throw response;
     })
-    .catch(reason => {
+    .catch((reason) => {
       throw reason;
     });
 }

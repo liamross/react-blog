@@ -1,8 +1,6 @@
 import { select, call, put } from 'redux-saga/effects';
 import { getPosts } from '../api/posts';
 import { FetchStatus } from '../utilities/reduxUtils';
-import { PageName } from '../utilities/postUtils';
-
 
 /* ACTIONS */
 
@@ -22,12 +20,12 @@ const getPagePending = () => ({
   type: GET_PAGE_PENDING,
 });
 
-const getPageSuccess = (payload) => ({
+const getPageSuccess = payload => ({
   type: GET_PAGE_SUCCESS,
   payload,
 });
 
-const getPageFailed = (error) => ({
+const getPageFailed = error => ({
   type: GET_PAGE_FAILED,
   error,
 });
@@ -49,7 +47,7 @@ const defaultState = {
  * @returns {Object} - Returns the new state.
  */
 export default (state = defaultState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case GET_PAGE_PENDING:
       return {
         ...state,
@@ -62,7 +60,7 @@ export default (state = defaultState, action) => {
         page: action.payload.page,
         pageTokens: {
           ...state.pageTokens,
-          [action.payload.page + 1]: action.payload['nextPageToken'],
+          [action.payload.page + 1]: action.payload.nextPageToken,
         },
         items: action.payload.items || [],
         error: '',
@@ -77,7 +75,7 @@ export default (state = defaultState, action) => {
     default:
       return state;
   }
-}
+};
 
 /* SAGAS */
 

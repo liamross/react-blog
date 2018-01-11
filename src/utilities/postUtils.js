@@ -4,12 +4,10 @@ export const PageName = {
   Journalism: 'journalism',
 };
 
-export const isPageNameValid = (pageName) => {
-  return pageName
+export const isPageNameValid = pageName => pageName
     && typeof pageName === 'string'
     && (
       pageName === PageName.Fiction
       || pageName === PageName.NonFiction
       || pageName === PageName.Journalism
     );
-};

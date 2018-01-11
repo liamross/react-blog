@@ -1,4 +1,4 @@
-import { all, fork, takeLatest, takeEvery } from 'redux-saga/effects';
+import { all, fork, takeLatest } from 'redux-saga/effects';
 
 import { GET_PAGE, getPageSaga } from './redux/posts';
 
