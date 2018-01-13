@@ -10,7 +10,7 @@ const GET_PAGE_SUCCESS = 'posts/GET_PAGE_SUCCESS';
 const GET_PAGE_FAILED = 'posts/GET_PAGE_FAILED';
 
 
-export const getPage = (pageName, pageNumber) => ({
+export const getPageAction = (pageName, pageNumber) => ({
   type: GET_PAGE,
   pageName,
   pageNumber,
@@ -36,6 +36,8 @@ const defaultState = {
   items: [],
   error: '',
   status: FetchStatus.Loading,
+  currentBlog: '',
+  comments: {},
 };
 
 /* REDUCER */
@@ -81,7 +83,7 @@ export default (state = defaultState, action) => {
 
 /**
  * SAGA: Fetches a page of posts and inserts them into the state.
- * @param {Object} action - The getPage action.
+ * @param {Object} action - The getPageAction action.
  * @param {string} action.pageName - The name of the page to fetch results from.
  * @param {number} action.pageNumber - The page number to fetch.
  */

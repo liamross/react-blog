@@ -12,3 +12,7 @@
 
 # ignore service worker
 /src/*ServiceWorker.js
+
+# ignore test files
+# **/__tests__/**
+# **/.test.*

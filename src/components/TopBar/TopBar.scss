@@ -1,3 +1,14 @@
+@import '../../theme/colors';
+
 .TopBar {
   box-shadow: 0 4px 8px -3px rgba(17, 17, 17, .06);
+  background-color: $color-themePost;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+
+  &__logo {
+    height: 32px;
+  }
 }

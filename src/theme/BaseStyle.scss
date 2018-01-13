@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 @import './colors';
 
+// DOCUMENT SET-UP
+
 html,
 body,
 #root,
@@ -17,4 +19,31 @@ html {
 
 body {
   margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// BASE STYLE FOR COMPONENTS
+
+.Button {
+  &--hidden {
+    border: none;
+    outline: none;
+    display: block;
+    background: none;
+    padding: 0;
+    margin: 0;
+
+    &:active,
+    &:hover,
+    &:focus,
+    &:visited {
+      border: none;
+      outline: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
 }
