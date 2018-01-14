@@ -1,24 +1,31 @@
-// THEME
-$color-themeDark:   #8E5A25;
-$color-themeLight:  #D7B78B;
-$color-themePost: #fffaf3;
+/* THEME + ICON */
+$color-themeDark:   #996633;
+$color-themeLight:  #CCCC99;
+$color-themeStroke: #330000;
 
-// NEUTRAL
+
+/* POSTS */
+$color-postAccent:     #AA0F10;
+$color-postBackground: #FBF9F2;
+
+
+/* NEUTRAL */
 $color-neutralDark:	       #212121;
 $color-neutralPrimary:	   #333333; // Primary text color.
 $color-neutralPrimaryAlt:	 #3c3c3c;
 $color-neutralSecondary:	 #666666; // Secondary text color.
-$color-neutralTertiary:	   #a6a6a6;
+$color-neutralTertiary:	   #a6a6a6; // App background.
 $color-neutralTertiaryAlt: #c8c8c8;
-$color-neutralLight:	     #eaeaea; // Blog background.
+$color-neutralLight:	     #eaeaea;
 $color-neutralLighter:	   #f4f4f4;
-$color-neutralLighterAlt:	 #f8f8f8; // Blog post color.
+$color-neutralLighterAlt:	 #f8f8f8;
 
-// ACCENTS
+
+/* ACCENT COLORS */
 
 // Yellows
-$color-yellow:	    #ffb900;
-$color-yellowLight:	#fff100;
+$color-yellow:	      #ffb900;
+$color-yellowLight:	  #fff100;
 
 // Oranges
 $color-orange:	      #d83b01;
@@ -26,8 +33,8 @@ $color-orangeLight:	  #ea4300;
 $color-orangeLighter:	#ff8c00;
 
 // Reds
-$color-redDark:	#a80000;
-$color-red:	    #e81123;
+$color-redDark:	      #a80000;
+$color-red:	          #e81123;
 
 // Magentas
 $color-magentaDark:	  #5c005c;
@@ -35,22 +42,22 @@ $color-magenta:	      #b4009e;
 $color-magentaLight:	#e3008c;
 
 // Purples
-$color-purpleDark:	#32145a;
-$color-purple:	    #5c2d91;
-$color-purpleLight:	#b4a0ff;
+$color-purpleDark:	  #32145a;
+$color-purple:	      #5c2d91;
+$color-purpleLight:	  #b4a0ff;
 
 // Blues
-$color-blueDark:	#002050;
-$color-blueMid:	  #00188f;
-$color-blue:	    #0078d7;
-$color-blueLight:	#00bcf2;
+$color-blueDark:	    #002050;
+$color-blueMid:	      #00188f;
+$color-blue:	        #0078d7;
+$color-blueLight:	    #00bcf2;
 
 // Teals
-$color-tealDark:	#004b50;
-$color-teal:	    #008272;
-$color-tealLight:	#00B294;
+$color-tealDark:	    #004b50;
+$color-teal:	        #008272;
+$color-tealLight:	    #00B294;
 
 // Greens
-$color-greenDark:	  #004b1c;
-$color-green:	      #107c10;
-$color-greenLight:	#bad80a;
+$color-greenDark:	    #004b1c;
+$color-green:	        #107c10;
+$color-greenLight:	  #bad80a;

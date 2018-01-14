@@ -21,6 +21,8 @@
     // Enforce max-lengths.
     "max-len": ["error", {"code": 80, "comments": 80, "ignoreTrailingComments": true}],
     // Enforce newlines for multiple function chaining.
-    "newline-per-chained-call": ["error", {"ignoreChainWithDepth": 2}]
+    "newline-per-chained-call": ["error", {"ignoreChainWithDepth": 2}],
+    // Ignore spaces used for lining-up end-of-line comments.
+    "no-multi-spaces": ["error", { "ignoreEOLComments": true }]
   }
 }

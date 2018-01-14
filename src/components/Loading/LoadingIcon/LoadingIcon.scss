@@ -1,0 +1,23 @@
+@import '../../../theme/colors';
+
+.LoadingIcon {
+  height: 100%;
+
+  &__stroke {
+    stroke: $color-themeStroke;
+    stroke-miterlimit: 10;
+    stroke-width: 0.5;
+  }
+
+  &__lightFill {
+    fill: $color-themeLight;
+  }
+
+  &__darkFill {
+    fill: $color-themeDark;
+  }
+
+  &__noFill {
+    fill: none;
+  }
+}

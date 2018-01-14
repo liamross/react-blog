@@ -1,10 +1,15 @@
 import React from 'react';
 import { ConnectedRouter } from 'react-router-redux';
 import { Route, Switch } from 'react-router-dom';
+
 import { history } from '../store';
 import { isPageNameValid } from '../utilities/postUtils';
+
 import TopBar from './TopBar/TopBar';
 import BlogBody from './BlogBody/BlogBody';
+import PageNotFound from './PageNotFound/PageNotFound';
+import SiteHome from './SiteHome/SiteHome';
+import BlogsHome from './BlogsHome/BlogsHome';
 
 import './App.scss';
 
@@ -15,11 +20,11 @@ function App() {
       <div className="App__content">
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path="/" render={() => <div>Home</div>} />
+            <Route exact path="/" render={() => <SiteHome />} />
             <Route
               exact
               path="/blogs"
-              render={() => <div>Blog Picker</div>}
+              render={() => <BlogsHome />}
             />
             <Route
               path="/blogs/:pageName"
@@ -28,10 +33,10 @@ function App() {
                           ? <BlogBody
                             pageName={routeProps.match.params.pageName}
                           />
-                          : <div>NOT FOUND PAGE</div>
+                          : <PageNotFound />
                   )}
             />
-            <Route render={() => <div>NOT FOUND PAGE</div>} />
+            <Route render={() => <PageNotFound />} />
           </Switch>
         </ConnectedRouter>
       </div>

@@ -1,3 +1,5 @@
+@import '../theme/colors';
+
 .App {
   height: 100%;
   position: relative;
@@ -11,6 +13,7 @@
   }
 
   &__content {
+    background-color: $color-neutralTertiary;
     box-sizing: border-box;
     margin-top: 48px;
     height: calc(100% - 48px);

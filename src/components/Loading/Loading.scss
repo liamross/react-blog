@@ -1,0 +1,33 @@
+.Loading {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__icon {
+    height: 90px;
+    margin-right: 16px;
+    animation: fadein 1s;
+    user-select: none;
+  }
+
+  &__text {
+    margin-top: 6px;
+    font-size: 22px;
+    user-select: none;
+  }
+
+  &__fadeIn {
+    animation: fadein 1s;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
