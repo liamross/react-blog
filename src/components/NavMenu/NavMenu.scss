@@ -1,0 +1,49 @@
+@import '../../theme/colors';
+
+.NavMenu {
+  position: fixed;
+  top: 48px;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  pointer-events: none;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 0.3s cubic-bezier(0, 0, 0.3, 1);
+  }
+
+  &__container {
+    box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1),
+    2px 2px 2px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    width: 100%;
+    max-width: 400px;
+    background: $color-neutralTertiaryAlt;
+    transform: translateX(-102%);
+    will-change: transform;
+    transition: transform 0.2s cubic-bezier(0, 0, 0.3, 1);
+  }
+
+  &--visible {
+    pointer-events: auto;
+
+    &::before {
+      opacity: 1;
+    }
+
+    .NavMenu__container {
+      transform: none;
+    }
+  }
+}

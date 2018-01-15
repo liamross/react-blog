@@ -1,14 +1,74 @@
 @import '../../theme/colors';
 
 .TopBar {
-  box-shadow: 0 4px 8px -3px rgba(17, 17, 17, .06);
-  background-color: $color-postBackground;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  background-color: $color-neutralLighter;
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: 0 16px;
+
+  .TopBarNavButton {
+    width: 48px;
+    height: 100%;
+    position: relative;
+    color: $color-postAccent;
+    cursor: default;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    &:active {
+      box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.1);
+
+      .TopBarNavButton__menu {
+        font-size: 29px;
+        transform: translateY(-2px);
+      }
+
+      .TopBarNavButton__close {
+        font-size: 47px;
+        margin-top: 0.5px;
+      }
+    }
+
+    &__menu {
+      transform: translateY(-3px);
+      font-size: 30px;
+      position: absolute;
+      pointer-events: none;
+      font-weight: 600;
+      opacity: 1;
+      will-change: opacity;
+      transition: opacity 0.15s 0.15s ease-in;
+    }
+
+    &__close {
+      font-size: 48px;
+      position: absolute;
+      pointer-events: none;
+      font-weight: 100;
+      opacity: 0;
+      will-change: opacity;
+      transition: opacity 0.15s ease-in;
+    }
+
+    &--open {
+      .TopBarNavButton__menu {
+        opacity: 0;
+        transition: opacity 0.15s ease-in;
+      }
+
+      .TopBarNavButton__close {
+        opacity: 1;
+        transition: opacity 0.15s 0.15s ease-in;
+      }
+    }
+  }
 
   &__logo {
     height: 32px;
+    margin-left: 8px;
+    user-select: none;
   }
 }

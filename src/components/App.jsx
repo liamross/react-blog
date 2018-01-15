@@ -6,6 +6,7 @@ import { history } from '../store';
 import { isPageNameValid } from '../utilities/postUtils';
 
 import TopBar from './TopBar/TopBar';
+import NavMenu from './NavMenu/NavMenu';
 import BlogBody from './BlogBody/BlogBody';
 import PageNotFound from './PageNotFound/PageNotFound';
 import SiteHome from './SiteHome/SiteHome';
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="App">
       <TopBar />
+      <NavMenu />
       <div className="App__content">
         <ConnectedRouter history={history}>
           <Switch>

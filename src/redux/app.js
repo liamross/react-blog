@@ -1,13 +1,17 @@
-
 import { LOCATION_CHANGE } from 'react-router-redux';
 
 /* ACTIONS */
 
 export const SET_NAV = 'app/SET_NAV';
+export const TOGGLE_NAV = 'app/TOGGLE_NAV';
 
 export const setNavAction = payload => ({
   type: SET_NAV,
   payload,
+});
+
+export const toggleNavAction = () => ({
+  type: TOGGLE_NAV,
 });
 
 const defaultState = {
@@ -33,6 +37,11 @@ export default (state = defaultState, action) => {
       return {
         ...state,
         navOpen: action.payload,
+      };
+    case TOGGLE_NAV:
+      return {
+        ...state,
+        navOpen: !state.navOpen,
       };
     default:
       return state;

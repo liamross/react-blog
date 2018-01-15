@@ -1,13 +1,19 @@
 @import '../../theme/colors';
 
 .BlogPost {
-  padding: 24px 16px 36px;
+  padding: 24px 36px 36px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.18);
   background-color: $color-postBackground;
-  margin: 48px 0;
+  animation: fadein 150ms;
+  margin: 24px 0;
+  overflow: hidden;
 
   &:first-child {
     margin-top: 16px;
+  }
+
+  @media screen and (min-width: 700px) {
+    margin: 48px 0;
   }
 
   h1 {
@@ -23,7 +29,7 @@
   blockquote {
     display: block;
     padding: 15px 20px 15px 45px;
-    margin: 24px 0;
+    margin: 24px;
     position: relative;
     color: $color-neutralSecondary;
     box-shadow: 2px 2px 16px rgba(0, 0, 0, 0.16);
@@ -44,5 +50,14 @@
   .tr-caption {
     // Styling for image captions.
     color: $color-neutralSecondary;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

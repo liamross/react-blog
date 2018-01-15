@@ -8,7 +8,7 @@
   &__icon {
     height: 90px;
     margin-right: 16px;
-    animation: fadein 1s;
+    animation: fadein 0.5s;
     user-select: none;
   }
 
@@ -19,7 +19,7 @@
   }
 
   &__fadeIn {
-    animation: fadein 1s;
+    animation: fadein 0.5s;
   }
 }
 

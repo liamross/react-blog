@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import PropTypes from 'prop-types';
@@ -23,8 +23,10 @@ const propTypes = {
 
 const defaultProps = {};
 
-class BlogBody extends Component {
-  componentWillMount() {
+class BlogBody extends PureComponent {
+  constructor(props) {
+    super(props);
+
     this.props.getPage(1);
   }
 
@@ -42,9 +44,11 @@ class BlogBody extends Component {
 
     switch (postStatus) {
       case FetchStatus.Loading:
+      // case FetchStatus.Success:
         return <Loading message="Loading Posts" />;
       case FetchStatus.Error:
         return <div>Error: {JSON.stringify(error)}</div>;
+      // case 'hi':
       case FetchStatus.Success:
         return (
           <div className="BlogBody__content">

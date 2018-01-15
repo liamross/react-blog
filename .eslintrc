@@ -23,6 +23,10 @@
     // Enforce newlines for multiple function chaining.
     "newline-per-chained-call": ["error", {"ignoreChainWithDepth": 2}],
     // Ignore spaces used for lining-up end-of-line comments.
-    "no-multi-spaces": ["error", { "ignoreEOLComments": true }]
+    "no-multi-spaces": ["error", { "ignoreEOLComments": true }],
+    // Modify jsx-a11y accessibility settings.
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "jsx-a11y/interactive-supports-focus": "warn"
   }
 }

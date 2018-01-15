@@ -3,17 +3,34 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import PropTypes from 'prop-types';
 
+import { toggleNavAction } from '../../redux/app';
+
 import './TopBar.scss';
 
 const propTypes = {
+  navOpen: PropTypes.bool.isRequired,
   pushHome: PropTypes.func.isRequired,
+  toggleNav: PropTypes.func.isRequired,
 };
 
 const defaultProps = {};
 
-function TopBar({ pushHome }) {
+function TopBar({ navOpen, pushHome, toggleNav }) {
   return (
     <div className="TopBar">
+      <button
+        title={`${navOpen ? 'Close' : 'Open'} Menu`}
+        className={
+          `Button--hidden TopBarNavButton ${
+            navOpen ? 'TopBarNavButton--open' : ''
+            }`
+        }
+        tabIndex={0}
+        onClick={toggleNav}
+      >
+        <div className="TopBarNavButton__menu">☰</div>
+        <div className="TopBarNavButton__close">×</div>
+      </button>
       <button
         title="Home"
         tabIndex={0}
@@ -30,10 +47,13 @@ function TopBar({ pushHome }) {
   );
 }
 
-const mapStateToProps = (/*state*/) => ({});
+const mapStateToProps = state => ({
+  navOpen: state.app.navOpen,
+});
 
 const mapDispatchToProps = dispatch => ({
   pushHome: () => dispatch(push('/')),
+  toggleNav: () => dispatch(toggleNavAction()),
 });
 
 TopBar.propTypes = propTypes;
