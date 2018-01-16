@@ -3,57 +3,44 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import PropTypes from 'prop-types';
 
-import { toggleNavAction } from '../../redux/app';
+import NavMenu from '../NavMenu/NavMenu';
 
 import './TopBar.scss';
 
 const propTypes = {
-  navOpen: PropTypes.bool.isRequired,
   pushHome: PropTypes.func.isRequired,
-  toggleNav: PropTypes.func.isRequired,
 };
 
 const defaultProps = {};
 
-function TopBar({ navOpen, pushHome, toggleNav }) {
+function TopBar({ pushHome }) {
   return (
     <div className="TopBar">
-      <button
-        title={`${navOpen ? 'Close' : 'Open'} Menu`}
-        className={
-          `Button--hidden TopBarNavButton ${
-            navOpen ? 'TopBarNavButton--open' : ''
-            }`
-        }
-        tabIndex={0}
-        onClick={toggleNav}
-      >
-        <div className="TopBarNavButton__menu">☰</div>
-        <div className="TopBarNavButton__close">×</div>
-      </button>
-      <button
+      <NavMenu />
+      <a
         title="Home"
+        href={`${process.env.PUBLIC_URL}/`}
         tabIndex={0}
-        className="Button--hidden"
-        onClick={pushHome}
+        className="Anchor--hidden TopBar__logo"
+        onClick={(event) => {
+          event.preventDefault();
+          pushHome();
+        }}
       >
         <img
           alt="Logo"
-          className="TopBar__logo"
+          className="TopBar__logo__image"
           src={`${process.env.PUBLIC_URL}/img/logos/cc_logo-text.png`}
         />
-      </button>
+      </a>
     </div>
   );
 }
 
-const mapStateToProps = state => ({
-  navOpen: state.app.navOpen,
-});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
   pushHome: () => dispatch(push('/')),
-  toggleNav: () => dispatch(toggleNavAction()),
 });
 
 TopBar.propTypes = propTypes;

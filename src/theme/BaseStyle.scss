@@ -27,14 +27,14 @@ body {
 
 // BASE STYLE FOR COMPONENTS
 
-.Button {
+.Button,
+.Anchor {
   &--hidden {
     border: none;
     outline: none;
     background: none;
     padding: 0;
     margin: 0;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,4 +49,8 @@ body {
       margin: 0;
     }
   }
+}
+
+.Anchor--hidden {
+  cursor: pointer;
 }

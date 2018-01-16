@@ -14,7 +14,7 @@ const defaultProps = {};
 function SiteHome({ pushPath }) {
   return (
     <div className="SiteHome">
-      <button onClick={() => pushPath('/blogs')}>Go to Blogs.</button>
+      Site Home
       <button onClick={() => pushPath('/invalid')}>Go to invalid page.</button>
     </div>
   );

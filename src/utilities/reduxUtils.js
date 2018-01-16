@@ -1,5 +1,5 @@
 export const FetchStatus = {
-  Error: -1,
-  Loading: 0,
-  Success: 1,
+  Error: 'Error',
+  Loading: 'Loading',
+  Success: 'Success',
 };

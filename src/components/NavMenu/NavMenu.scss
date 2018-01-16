@@ -1,5 +1,64 @@
 @import '../../theme/colors';
 
+.TopBarNavButton {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  color: $color-postAccent;
+  cursor: default;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+
+  &:active {
+    box-shadow: inset -2px 0 4px rgba(0, 0, 0, 0.1);
+
+    .TopBarNavButton__menu {
+      font-size: 29px;
+      transform: translateY(-2px);
+    }
+
+    .TopBarNavButton__close {
+      font-size: 47px;
+      margin-top: 0.5px;
+    }
+  }
+
+  &__menu {
+    transform: translateY(-3px);
+    font-size: 30px;
+    position: absolute;
+    pointer-events: none;
+    font-weight: 600;
+    opacity: 1;
+    will-change: opacity;
+    transition: opacity 0.15s 0.15s ease-in;
+  }
+
+  &__close {
+    font-size: 48px;
+    position: absolute;
+    pointer-events: none;
+    font-weight: 100;
+    opacity: 0;
+    will-change: opacity;
+    transition: opacity 0.15s ease-in;
+  }
+
+  &--open {
+    .TopBarNavButton__menu {
+      opacity: 0;
+      transition: opacity 0.15s ease-in;
+    }
+
+    .TopBarNavButton__close {
+      opacity: 1;
+      transition: opacity 0.15s 0.15s ease-in;
+    }
+  }
+}
+
 .NavMenu {
   position: fixed;
   top: 48px;
@@ -8,6 +67,7 @@
   width: 100%;
   overflow: hidden;
   pointer-events: none;
+  z-index: 1;
 
   &::before {
     content: '';
@@ -27,12 +87,17 @@
     box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.1),
     2px 2px 2px rgba(0, 0, 0, 0.1);
     height: 100%;
-    width: 100%;
+    width: calc(100% - 64px);
     max-width: 400px;
     background: $color-neutralTertiaryAlt;
     transform: translateX(-102%);
     will-change: transform;
     transition: transform 0.2s cubic-bezier(0, 0, 0.3, 1);
+  }
+
+  &__focus {
+    display: flex;
+    flex-direction: column;
   }
 
   &--visible {

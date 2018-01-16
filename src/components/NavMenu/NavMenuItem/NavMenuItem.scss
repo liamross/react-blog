@@ -1,5 +1,28 @@
-@import '../../theme/colors';
+@import '../../../theme/colors';
 
 .NavMenuItem {
+  color: $color-postAccent;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 8px 16px;
+  font-size: 20px;
 
+  &:hover,
+  &:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+    outline: none;
+    border: none;
+  }
+
+  &--subItem {
+    color: $color-neutralSecondary;
+    padding-left: 32px;
+    font-size: 17px;
+  }
+
+  &--current {
+    color: $color-neutralPrimary;
+    background-color: rgba(0, 0, 0, 0.1);
+    cursor: default;
+  }
 }

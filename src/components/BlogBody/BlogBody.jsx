@@ -8,6 +8,7 @@ import { getPageAction } from '../../redux/posts';
 
 import { BlogPost } from '../BlogPost/BlogPost';
 import { Loading } from '../Loading/Loading';
+import { ErrorPage } from '../ErrorPage/ErrorPage';
 
 import './BlogBody.scss';
 
@@ -15,8 +16,8 @@ const propTypes = {
   pageName: PropTypes.string.isRequired,
   page: PropTypes.number.isRequired,
   items: PropTypes.arrayOf(PropTypes.object).isRequired,
-  error: PropTypes.string.isRequired,
-  postStatus: PropTypes.number.isRequired,
+  error: PropTypes.objectOf(PropTypes.node).isRequired,
+  postStatus: PropTypes.string.isRequired,
   getPage: PropTypes.func.isRequired,
   pushPath: PropTypes.func.isRequired,
 };
@@ -26,28 +27,51 @@ const defaultProps = {};
 class BlogBody extends PureComponent {
   constructor(props) {
     super(props);
+    props.getPage(props.pageName, props.page);
+    this.reloadPage = this.reloadPage.bind(this);
+    this.returnToBlogs = this.returnToBlogs.bind(this);
+  }
 
-    this.props.getPage(1);
+  componentWillReceiveProps(nextProps) {
+    const { pageName, getPage } = nextProps;
+    const { pageName: oldPageName } = this.props;
+    if (pageName !== oldPageName) {
+      getPage(pageName, 1);
+    }
+  }
+
+  reloadPage() {
+    const { pageName, page, getPage } = this.props;
+    getPage(pageName, page);
+  }
+
+  returnToBlogs() {
+    const { pushPath } = this.props;
+    pushPath('/blogs');
   }
 
   renderBlogBody() {
-    const {
-      pageName,
-      page,
-      items,
-      error,
-      postStatus,
-      getPage,
-      pushPath,
-    } = this.props;
-    console.log(!!(page && error && postStatus && getPage));
-
+    const { pageName, items, error, postStatus, pushPath } = this.props;
     switch (postStatus) {
       case FetchStatus.Loading:
       // case FetchStatus.Success:
         return <Loading message="Loading Posts" />;
       case FetchStatus.Error:
-        return <div>Error: {JSON.stringify(error)}</div>;
+        return (
+          <ErrorPage
+            errorPageMessage="Error fetching posts."
+            error={error}
+            useErrorDetails
+            reloadButton={{
+              title: 'Try again',
+              onClick: this.reloadPage,
+            }}
+            backButton={{
+              title: 'Return to blogs',
+              onClick: this.returnToBlogs,
+            }}
+          />
+        );
       // case 'hi':
       case FetchStatus.Success:
         return (
@@ -95,8 +119,10 @@ const mapStateToProps = state => ({
   postStatus: state.posts.postStatus,
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
-  getPage: pageNumber => dispatch(getPageAction(props.pageName, pageNumber)),
+const mapDispatchToProps = dispatch => ({
+  getPage: (pageName, pageNumber) => {
+    dispatch(getPageAction(pageName, pageNumber));
+  },
   pushPath: path => dispatch(push(path)),
 });
 

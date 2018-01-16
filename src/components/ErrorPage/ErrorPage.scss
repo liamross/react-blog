@@ -1,0 +1,64 @@
+@import '../../theme/colors';
+
+.ErrorPage {
+  height: 100%;
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  animation: fadein 0.5s;
+
+  &__titleBlock {
+    display: flex;
+    font-size: 32px;
+    user-select: none;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+    &__errorStatus {
+      color: $color-neutralSecondary;
+    }
+
+    &__errorMessage {
+      color: $color-postAccent;
+    }
+  }
+
+  &__buttons {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-between;
+
+    &__button {
+      background: none;
+      border: none;
+      outline: none ;
+      color: $color-neutralPrimary;
+      font-size: 16px;
+      padding: 4px 8px;
+
+      &:hover,
+      &:focus {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      &:active {
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

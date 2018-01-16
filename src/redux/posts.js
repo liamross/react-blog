@@ -34,7 +34,7 @@ const defaultState = {
   page: 1,
   pageTokens: {},
   items: [],
-  error: '',
+  error: {},
   postStatus: FetchStatus.Loading,
   currentBlog: '',
   comments: {},
@@ -53,7 +53,7 @@ export default (state = defaultState, action) => {
     case GET_PAGE_PENDING:
       return {
         ...state,
-        error: '',
+        error: {},
         postStatus: FetchStatus.Loading,
       };
     case GET_PAGE_SUCCESS:
@@ -65,7 +65,7 @@ export default (state = defaultState, action) => {
           [action.payload.page + 1]: action.payload.nextPageToken,
         },
         items: action.payload.items || [],
-        error: '',
+        error: {},
         postStatus: FetchStatus.Success,
       };
     case GET_PAGE_FAILED:
