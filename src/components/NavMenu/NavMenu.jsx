@@ -74,8 +74,8 @@ class NavMenu extends PureComponent {
         <button
           className={
             `Button--hidden TopBarNavButton ${
-              navOpen ? 'TopBarNavButton--open' : ''
-              }`
+            navOpen ? 'TopBarNavButton--open' : ''
+            }`
           }
           tabIndex={0}
           onClick={toggleNav}
@@ -95,7 +95,13 @@ class NavMenu extends PureComponent {
             onClick={e => e.stopPropagation()}
           >
             <div className="NavMenu__focus">
-              {links.map(link => <NavMenuItem key={link.title} {...link} />)}
+              {links.map(link => (
+                <NavMenuItem
+                  key={link.title}
+                  navOpen={navOpen}
+                  {...link}
+                />
+              ))}
             </div>
           </nav>
         </aside>
