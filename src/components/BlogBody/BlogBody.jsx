@@ -54,7 +54,7 @@ class BlogBody extends PureComponent {
     const { pageName, items, error, postStatus, pushPath } = this.props;
     switch (postStatus) {
       case FetchStatus.Loading:
-      // case FetchStatus.Success:
+      case FetchStatus.Success:
         return <Loading message="Loading Posts" />;
       case FetchStatus.Error:
         return (
@@ -72,8 +72,8 @@ class BlogBody extends PureComponent {
             }}
           />
         );
-      // case 'hi':
-      case FetchStatus.Success:
+      case 'hi':
+      // case FetchStatus.Success:
         return (
           <div className="BlogBody__content">
             {items && items.length > 0

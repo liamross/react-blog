@@ -8,6 +8,7 @@ import './NavMenuItem.scss';
 const propTypes = {
   title: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  navOpen: PropTypes.bool.isRequired,
   isSubItem: PropTypes.bool,
   location: PropTypes.objectOf(PropTypes.string),
   pushPath: PropTypes.func.isRequired,
@@ -21,14 +22,16 @@ const defaultProps = {
 function NavMenuItem({
   title,
   link,
+  navOpen,
   isSubItem,
   location,
   pushPath,
 }) {
   const isCurrent = location && location.pathname === link;
+  const tabIndex = (!navOpen || isCurrent) ? -1 : 0;
   return (
     <a
-      tabIndex={isCurrent ? -1 : 0}
+      tabIndex={tabIndex}
       href={`${process.env.PUBLIC_URL}${link}`}
       onClick={(event) => {
         event.preventDefault();

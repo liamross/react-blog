@@ -10,6 +10,10 @@
   &__logo {
     height: 100%;
 
+    &:focus {
+      outline: 1px solid $color-neutralLight;
+    }
+
     &__image {
       height: 32px;
       margin: 0 8px;
