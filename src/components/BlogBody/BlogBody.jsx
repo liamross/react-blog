@@ -47,7 +47,7 @@ class BlogBody extends PureComponent {
 
   returnToBlogs() {
     const { pushPath } = this.props;
-    pushPath('/blogs');
+    pushPath('/react-blog/blogs');
   }
 
   renderBlogBody() {
@@ -87,10 +87,10 @@ class BlogBody extends PureComponent {
               : (
                 <div>
                   Some {pageName} blogs are on the way. Check back soon!
-                  <button onClick={() => pushPath('/blogs')}>
+                  <button onClick={() => pushPath('/react-blog/blogs')}>
                     Go back to blogs home
                   </button>
-                  <button onClick={() => pushPath('/')}>
+                  <button onClick={() => pushPath('/react-blog')}>
                     Go back to home
                   </button>
                 </div>

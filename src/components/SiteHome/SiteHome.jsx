@@ -15,7 +15,9 @@ function SiteHome({ pushPath }) {
   return (
     <div className="SiteHome">
       Site Home
-      <button onClick={() => pushPath('/invalid')}>Go to invalid page.</button>
+      <button onClick={() => pushPath('/react-blog/invalid')}>
+        Go to invalid page.
+      </button>
     </div>
   );
 }

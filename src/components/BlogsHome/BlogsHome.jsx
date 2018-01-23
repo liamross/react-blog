@@ -14,14 +14,15 @@ const defaultProps = {};
 function BlogsHome({ pushPath }) {
   return (
     <div className="BlogsHome">
-      Select a blog <button onClick={() => pushPath('/')}>Go Home.</button>
-      <button onClick={() => pushPath('/blogs/fiction')}>
+      Select a blog
+      <button onClick={() => pushPath('/react-blog/')}>Go Home.</button>
+      <button onClick={() => pushPath('/react-blog/blogs/fiction')}>
         Go to fiction.
       </button>
-      <button onClick={() => pushPath('/blogs/non-fiction')}>
+      <button onClick={() => pushPath('/react-blog/blogs/non-fiction')}>
         Go to non-fiction.
       </button>
-      <button onClick={() => pushPath('/blogs/journalism')}>
+      <button onClick={() => pushPath('/react-blog/blogs/journalism')}>
         Go to journalism.
       </button>
     </div>

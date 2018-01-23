@@ -14,7 +14,8 @@ const defaultProps = {};
 function PageNotFound({ pushPath }) {
   return (
     <div className="PageNotFound">
-      Page Not Found. <button onClick={() => pushPath('/')}>Go Home.</button>
+      Page Not Found.
+      <button onClick={() => pushPath('/react-blog/')}>Go Home.</button>
     </div>
   );
 }

@@ -21,25 +21,25 @@ const defaultProps = {};
 const links = [
   {
     title: 'Home',
-    link: '/',
+    link: '/react-blog',
   },
   {
     title: 'Blogs',
-    link: '/blogs',
+    link: '/react-blog/blogs',
   },
   {
     title: 'Fiction',
-    link: `/blogs/${PageName.Fiction}`,
+    link: `/react-blog/blogs/${PageName.Fiction}`,
     isSubItem: true,
   },
   {
     title: 'Non-fiction',
-    link: `/blogs/${PageName.NonFiction}`,
+    link: `/react-blog/blogs/${PageName.NonFiction}`,
     isSubItem: true,
   },
   {
     title: 'Journalism',
-    link: `/blogs/${PageName.Journalism}`,
+    link: `/react-blog/blogs/${PageName.Journalism}`,
     isSubItem: true,
   },
 ];

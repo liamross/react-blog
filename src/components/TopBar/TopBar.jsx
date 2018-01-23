@@ -40,7 +40,7 @@ function TopBar({ pushHome }) {
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
-  pushHome: () => dispatch(push('/')),
+  pushHome: () => dispatch(push('/react-blog')),
 });
 
 TopBar.propTypes = propTypes;

@@ -20,14 +20,14 @@ function App() {
       <div className="App__content">
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path="/" render={() => <SiteHome />} />
+            <Route exact path="/react-blog" render={() => <SiteHome />} />
             <Route
               exact
-              path="/blogs"
+              path="/react-blog/blogs"
               render={() => <BlogsHome />}
             />
             <Route
-              path="/blogs/:pageName"
+              path="/react-blog/blogs/:pageName"
               render={routeProps => (
                       isPageNameValid(routeProps.match.params.pageName)
                           ? <BlogBody
