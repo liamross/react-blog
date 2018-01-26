@@ -43,9 +43,9 @@ export default function register() {
 
     window.addEventListener('fetch', event => {
       event.respondWith(
-        caches.match(event.request).then(function(resp) {
-          return resp || fetch(event.request).then(function(response) {
-            return caches.open('v1').then(function(cache) {
+        caches.match(event.request).then(resp => {
+          return resp || fetch(event.request).then(response => {
+            return caches.open('v1').then(cache => {
               cache.put(event.request, response.clone());
               return response;
             });
