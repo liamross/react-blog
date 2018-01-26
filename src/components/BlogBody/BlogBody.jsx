@@ -92,7 +92,7 @@ class BlogBody extends PureComponent {
             : (
               <ErrorPage
                 errorPageMessage={`Some ${
-                  pageName} blogs are on the way. Check back soon!`}
+                  pageName} blogs are on the way.`}
                 backButton={{
                   title: 'Return to home',
                   onClick: this.returnToHome,

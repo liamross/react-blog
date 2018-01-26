@@ -1,30 +1,27 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { push } from 'react-router-redux';
-import PropTypes from 'prop-types';
-import { PATH } from '../../utilities/routeUtils';
+// import { push } from 'react-router-redux';
+// import PropTypes from 'prop-types';
+// import { PATH } from '../../utilities/routeUtils';
 
 const propTypes = {
-  pushPath: PropTypes.func.isRequired,
+  // pushPath: PropTypes.func.isRequired,
 };
 
 const defaultProps = {};
 
-function BlogHome({ pushPath }) {
+function BlogHome(/*{ pushPath }*/) {
   return (
     <div className="SiteHome">
-      Site Home
-      <button onClick={() => pushPath(`${PATH}/invalid`)}>
-        Go to invalid page.
-      </button>
+      {' '}
     </div>
   );
 }
 
 const mapStateToProps = (/*state*/) => ({});
 
-const mapDispatchToProps = dispatch => ({
-  pushPath: path => dispatch(push(path)),
+const mapDispatchToProps = (/*dispatch*/) => ({
+  // pushPath: path => dispatch(push(path)),
 });
 
 BlogHome.propTypes = propTypes;

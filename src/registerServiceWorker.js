@@ -40,6 +40,19 @@ export default function register() {
         registerValidSW(swUrl);
       }
     });
+
+    window.addEventListener('fetch', event => {
+      event.respondWith(
+        caches.match(event.request).then(function(resp) {
+          return resp || fetch(event.request).then(function(response) {
+            return caches.open('v1').then(function(cache) {
+              cache.put(event.request, response.clone());
+              return response;
+            });
+          });
+        })
+      );
+    });
   }
 }
 
@@ -98,20 +111,6 @@ function checkValidServiceWorker(swUrl) {
       );
     });
 }
-
-self.addEventListener('fetch', function(event) {
-  // Caching calls made for offline use.
-  event.respondWith(
-    caches.match(event.request).then(function(resp) {
-      return resp || fetch(event.request).then(function(response) {
-        return caches.open('v1').then(function(cache) {
-          cache.put(event.request, response.clone());
-          return response;
-        });
-      });
-    })
-  );
-});
 
 export function unregister() {
   if ('serviceWorker' in navigator) {

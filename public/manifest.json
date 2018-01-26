@@ -1,15 +1,16 @@
 {
-  "short_name": "Caffeine Creations",
   "name": "Caffeine Creations",
+  "description": "Caffeine-fueled writings.",
+  "background_color": "#A6A6A6",
+  "theme_color": "#A30906",
+  "orientation": "portrait-primary",
+  "start_url": "./index.html",
+  "scope": "/react-app/",
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "sizes": "64x64 32x32 24x24 16x16"
     }
   ],
-  "start_url": "./index.html",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "display": "standalone"
 }
