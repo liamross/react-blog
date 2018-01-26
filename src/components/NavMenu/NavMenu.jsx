@@ -6,6 +6,7 @@ import FocusLock from 'react-focus-lock';
 
 import { setNavAction, toggleNavAction } from '../../redux/app';
 import { PageName } from '../../utilities/postUtils';
+import { PATH } from '../../utilities/routeUtils';
 import NavMenuItem from './NavMenuItem/NavMenuItem';
 
 import './NavMenu.scss';
@@ -21,25 +22,21 @@ const defaultProps = {};
 const links = [
   {
     title: 'Home',
-    link: '/react-blog',
-  },
-  {
-    title: 'Blogs',
-    link: '/react-blog/blogs',
+    link: `${PATH}/`,
   },
   {
     title: 'Fiction',
-    link: `/react-blog/blogs/${PageName.Fiction}`,
+    link: `${PATH}/${PageName.Fiction}`,
     isSubItem: true,
   },
   {
     title: 'Non-fiction',
-    link: `/react-blog/blogs/${PageName.NonFiction}`,
+    link: `${PATH}/${PageName.NonFiction}`,
     isSubItem: true,
   },
   {
     title: 'Journalism',
-    link: `/react-blog/blogs/${PageName.Journalism}`,
+    link: `${PATH}/${PageName.Journalism}`,
     isSubItem: true,
   },
 ];

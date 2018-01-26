@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import PropTypes from 'prop-types';
-
-// import './SiteHome.scss';
+import { PATH } from '../../utilities/routeUtils';
 
 const propTypes = {
   pushPath: PropTypes.func.isRequired,
@@ -11,11 +10,11 @@ const propTypes = {
 
 const defaultProps = {};
 
-function SiteHome({ pushPath }) {
+function BlogHome({ pushPath }) {
   return (
     <div className="SiteHome">
       Site Home
-      <button onClick={() => pushPath('/react-blog/invalid')}>
+      <button onClick={() => pushPath(`${PATH}/invalid`)}>
         Go to invalid page.
       </button>
     </div>
@@ -28,6 +27,6 @@ const mapDispatchToProps = dispatch => ({
   pushPath: path => dispatch(push(path)),
 });
 
-SiteHome.propTypes = propTypes;
-SiteHome.defaultProps = defaultProps;
-export default connect(mapStateToProps, mapDispatchToProps)(SiteHome);
+BlogHome.propTypes = propTypes;
+BlogHome.defaultProps = defaultProps;
+export default connect(mapStateToProps, mapDispatchToProps)(BlogHome);

@@ -8,8 +8,8 @@ import { isPageNameValid } from '../utilities/postUtils';
 import TopBar from './TopBar/TopBar';
 import BlogBody from './BlogBody/BlogBody';
 import PageNotFound from './PageNotFound/PageNotFound';
-import SiteHome from './SiteHome/SiteHome';
-import BlogsHome from './BlogsHome/BlogsHome';
+import SiteHome from './BlogHome/BlogHome';
+import { PATH } from '../utilities/routeUtils';
 
 import './App.scss';
 
@@ -20,21 +20,15 @@ function App() {
       <div className="App__content">
         <ConnectedRouter history={history}>
           <Switch>
-            <Route exact path="/react-blog" render={() => <SiteHome />} />
+            <Route exact path={`${PATH}/`} render={() => <SiteHome />} />
             <Route
-              exact
-              path="/react-blog/blogs"
-              render={() => <BlogsHome />}
-            />
-            <Route
-              path="/react-blog/blogs/:pageName"
+              path={`${PATH}/:pageName`}
               render={routeProps => (
                       isPageNameValid(routeProps.match.params.pageName)
                           ? <BlogBody
                             pageName={routeProps.match.params.pageName}
                           />
-                          : <PageNotFound />
-                  )}
+                          : <PageNotFound />)}
             />
             <Route render={() => <PageNotFound />} />
           </Switch>

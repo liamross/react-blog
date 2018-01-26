@@ -31,7 +31,6 @@ function ErrorPage({
   reloadButton,
   backButton,
 }) {
-  console.log(error.statusText);
   return (
     <div className="ErrorPage">
       <div className="ErrorPage__titleBlock">

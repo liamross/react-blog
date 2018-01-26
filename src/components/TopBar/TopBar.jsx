@@ -4,6 +4,7 @@ import { push } from 'react-router-redux';
 import PropTypes from 'prop-types';
 
 import NavMenu from '../NavMenu/NavMenu';
+import { PATH } from '../../utilities/routeUtils';
 
 import './TopBar.scss';
 
@@ -40,7 +41,7 @@ function TopBar({ pushHome }) {
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch => ({
-  pushHome: () => dispatch(push('/react-blog')),
+  pushHome: () => dispatch(push(`${PATH}/`)),
 });
 
 TopBar.propTypes = propTypes;

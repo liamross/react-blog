@@ -9,6 +9,7 @@ import { getPageAction } from '../../redux/posts';
 import { BlogPost } from '../BlogPost/BlogPost';
 import { Loading } from '../Loading/Loading';
 import { ErrorPage } from '../ErrorPage/ErrorPage';
+import { PATH } from '../../utilities/routeUtils';
 
 import './BlogBody.scss';
 
@@ -29,7 +30,7 @@ class BlogBody extends PureComponent {
     super(props);
     props.getPage(props.pageName, props.page);
     this.reloadPage = this.reloadPage.bind(this);
-    this.returnToBlogs = this.returnToBlogs.bind(this);
+    this.returnToHome = this.returnToHome.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -45,16 +46,16 @@ class BlogBody extends PureComponent {
     getPage(pageName, page);
   }
 
-  returnToBlogs() {
+  returnToHome() {
     const { pushPath } = this.props;
-    pushPath('/react-blog/blogs');
+    pushPath(`${PATH}/`);
   }
 
   renderBlogBody() {
-    const { pageName, items, error, postStatus, pushPath } = this.props;
+    const { pageName, items, error, postStatus } = this.props;
     switch (postStatus) {
       case FetchStatus.Loading:
-      // case FetchStatus.Success:
+        // case FetchStatus.Success:
         return <Loading message="Loading Posts" />;
       case FetchStatus.Error:
         return (
@@ -67,36 +68,37 @@ class BlogBody extends PureComponent {
               onClick: this.reloadPage,
             }}
             backButton={{
-              title: 'Return to blogs',
-              onClick: this.returnToBlogs,
+              title: 'Return to home',
+              onClick: this.returnToHome,
             }}
           />
         );
       // case 'hi':
       case FetchStatus.Success:
         return (
-          <div className="BlogBody__content">
-            {items && items.length > 0
-              ? items.map(item => (
-                <BlogPost
-                  key={item.id}
-                  title={item.title}
-                  content={item.content}
-                />
-              ))
-              : (
-                <div>
-                  Some {pageName} blogs are on the way. Check back soon!
-                  <button onClick={() => pushPath('/react-blog/blogs')}>
-                    Go back to blogs home
-                  </button>
-                  <button onClick={() => pushPath('/react-blog')}>
-                    Go back to home
-                  </button>
-                </div>
-              )
-            }
-          </div>
+          items && items.length > 0
+            ? (
+              <div className="BlogBody__content">
+                {items.map(item => (
+                  <BlogPost
+                    key={item.id}
+                    title={item.title}
+                    content={item.content}
+                  />
+                ))
+                }
+              </div>
+            )
+            : (
+              <ErrorPage
+                errorPageMessage={`Some ${
+                  pageName} blogs are on the way. Check back soon!`}
+                backButton={{
+                  title: 'Return to home',
+                  onClick: this.returnToHome,
+                }}
+              />
+            )
         );
       default:
         return <div>Error...</div>;
@@ -112,19 +114,23 @@ class BlogBody extends PureComponent {
   }
 }
 
-const mapStateToProps = state => ({
-  page: state.posts.page,
-  items: state.posts.items,
-  error: state.posts.error,
-  postStatus: state.posts.postStatus,
-});
+const mapStateToProps = state => (
+  {
+    page: state.posts.page,
+    items: state.posts.items,
+    error: state.posts.error,
+    postStatus: state.posts.postStatus,
+  }
+);
 
-const mapDispatchToProps = dispatch => ({
-  getPage: (pageName, pageNumber) => {
-    dispatch(getPageAction(pageName, pageNumber));
-  },
-  pushPath: path => dispatch(push(path)),
-});
+const mapDispatchToProps = dispatch => (
+  {
+    getPage: (pageName, pageNumber) => {
+      dispatch(getPageAction(pageName, pageNumber));
+    },
+    pushPath: path => dispatch(push(path)),
+  }
+);
 
 BlogBody.propTypes = propTypes;
 BlogBody.defaultProps = defaultProps;
