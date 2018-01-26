@@ -1,1 +1,1 @@
-export const PATH = '/react-blog';
+export const PATH = '';
