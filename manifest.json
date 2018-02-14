@@ -1,10 +1,9 @@
 {
   "name": "Caffeine Creations",
-  "description": "Caffeine-fueled writings.",
+  "description": "Caffeine-fueled writing.",
   "background_color": "#A6A6A6",
   "theme_color": "#A30906",
   "orientation": "portrait-primary",
-  "start_url": "./index.html",
   "icons": [
     {
       "src": "favicon.ico",
